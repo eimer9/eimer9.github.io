@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Birthday Invitation 🎉</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -10,9 +11,9 @@
     margin-top: 80px;
   }
   button {
-    padding: 12px 24px;
+    padding: 14px 28px;
     margin: 20px;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
   }
   #yes {
@@ -32,12 +33,21 @@
 <script>
   const yes = document.getElementById("yes");
 
-  yes.addEventListener("mouseover", () => {
+  function moveButton() {
     const x = Math.random() * (window.innerWidth - 150);
     const y = Math.random() * (window.innerHeight - 150);
     yes.style.position = "absolute";
     yes.style.left = x + "px";
     yes.style.top = y + "px";
+  }
+
+  // Desktop
+  yes.addEventListener("mouseover", moveButton);
+
+  // Mobile
+  yes.addEventListener("touchstart", (event) => {
+    event.preventDefault(); // avoids accidental tap
+    moveButton();
   });
 </script>
 
