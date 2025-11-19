@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Invitation 🎉</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 80px;
+  }
+  button {
+    padding: 12px 24px;
+    margin: 20px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  #yes {
+    position: relative;
+    transition: left 0.1s ease, top 0.1s ease;
+  }
+</style>
+</head>
+<body>
+
+<h1>You're invited to my birthday! 🎂</h1>
+<p>Will you attend?</p>
+
+<button id="yes">YES</button>
+<button onclick="alert('Finally someone honest 😂')">NO</button>
+
+<script>
+  const yes = document.getElementById("yes");
+
+  yes.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 150);
+    yes.style.position = "absolute";
+    yes.style.left = x + "px";
+    yes.style.top = y + "px";
+  });
+</script>
+
+</body>
+</html>
