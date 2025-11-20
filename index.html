@@ -13,17 +13,18 @@
     font-family: "Fredoka", sans-serif;
     text-align: center;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     background: linear-gradient(135deg, #f9d2ff, #b5e3ff);
   }
 
   .card {
     background: white;
-    max-width: 430px;
+    width: 100%;
+    max-width: 360px; /* Más angosto para pantallas chicas */
     margin: auto;
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    padding: 18px;
+    border-radius: 16px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
     animation: fadeIn 0.8s ease-out;
   }
 
@@ -34,30 +35,30 @@
 
   img {
     width: 100%;
-    border-radius: 14px;
-    margin-bottom: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
   }
 
   h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 8px;
   }
 
   p {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 16px;
+    margin: 6px 0;
   }
 
   .buttons {
-    margin-top: 25px;
+    margin-top: 18px;
   }
 
   button {
-    padding: 14px 28px;
-    margin: 15px;
-    font-size: 20px;
+    padding: 12px 20px;
+    margin: 12px;
+    font-size: 18px;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 10px;
     border: none;
     font-weight: 600;
   }
@@ -74,7 +75,7 @@
     color: white;
   }
 
-  /* Pantalla flotante cuando aprieta NO */
+  /* Popup cuando tocan NO */
   #no-overlay {
     display: none;
     position: fixed;
@@ -82,19 +83,20 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.75);
-    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(3px);
     justify-content: center;
     align-items: center;
-    animation: fadeIn 0.4s ease-out;
+    padding: 20px;
   }
 
   #no-popup {
     background: white;
-    padding: 22px;
-    max-width: 330px;
+    padding: 18px;
+    width: 100%;
+    max-width: 300px;
     text-align: center;
-    border-radius: 18px;
+    border-radius: 16px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.3);
   }
 
@@ -105,7 +107,7 @@
 
   #no-popup p {
     margin-top: 12px;
-    font-size: 20px;
+    font-size: 18px;
   }
 
 </style>
@@ -114,14 +116,14 @@
 
 <div class="card">
 
-  <!-- Imagen principal del cumple -->
+  <!-- Imagen del cumpleañero -->
   <img src="foto-principal.jpg" alt="Cumpleaños">
 
-  <h1>¡Te invito a mi cumpleaños 69! 🎂</h1>
+  <h1>¡Estás invitado a mi cumpleaños! 🎂</h1>
 
-  <p><strong>📍 Lugar:</strong> Mi Finca - Calle las Arabias </p>
-  <p><strong>📅 Fecha:</strong> Domingo 23 de noviembre</p>
-  <p><strong>🕒 Hora:</strong> 13:00 hs</p>
+  <p><strong>📍 Lugar:</strong> Mi casa — Calle Falsa 123</p>
+  <p><strong>📅 Fecha:</strong> Sábado 14 de diciembre</p>
+  <p><strong>🕒 Hora:</strong> 20:00 hs</p>
 
   <p>¿Vas a venir?</p>
 
@@ -132,12 +134,11 @@
 
 </div>
 
-<!-- Overlay que aparece al apretar NO -->
+<!-- Popup NO -->
 <div id="no-overlay">
   <div id="no-popup">
     <img src="imagen-no.jpg" alt="Qué pena">
     <p>Qué pena que no puedas asistir 😢</p>
-    <p>Espero verte el año que viene para festejar mis 70</p>
   </div>
 </div>
 
@@ -147,8 +148,8 @@
   const overlay = document.getElementById("no-overlay");
 
   function moveButton() {
-    const x = Math.random() * (window.innerWidth - 150);
-    const y = Math.random() * (window.innerHeight - 150);
+    const x = Math.random() * (window.innerWidth - 140);
+    const y = Math.random() * (window.innerHeight - 180); 
     yes.style.position = "absolute";
     yes.style.left = x + "px";
     yes.style.top = y + "px";
@@ -163,12 +164,12 @@
     moveButton();
   });
 
-  // Acción cuando aprietan NO
+  // Botón NO → muestra popup
   no.addEventListener("click", () => {
     overlay.style.display = "flex";
   });
 
-  // Cerrar tocando afuera
+  // Cerrar el popup tocando fuera
   overlay.addEventListener("click", () => {
     overlay.style.display = "none";
   });
